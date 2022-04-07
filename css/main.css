@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Roboto:ital,wght@0,300;0,400;1,100;1,300&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	box-sizing: border-box;
+}
+
+:root {
+	--color-primary: #0b0442;
+	--color-secondary: #edb100;
+	--color-accent: #fff2d5;
+}
+
+html {
+	font-size: 62.5%;
+	font-family: "Roboto", sans-serif;
+}
+
+h1 {
+	font-family: "Orbitron", sans-serif;
+}
+
+.btn {
+	width: 25rem;
+	height: 8rem;
+	text-transform: uppercase;
+	font-size: 2rem;
+	cursor: pointer;
+	border-radius: 1rem;
+	border: none;
+}
+
+.btn-primary {
+	background-color: var(--color-primary);
+	color: var(--color-secondary);
+	letter-spacing: 0.5rem;
+	font-weight: bold;
+}
+.btn-primary:hover {
+	color: var(--color-primary);
+	background-color: var(--color-secondary);
+	border: 0.2rem solid var(--color-primary);
+}
+
+header {
+	width: 100%;
+	height: 100vh;
+	background-color: var(--color-accent);
+
+	overflow: hidden;
+}
+
+header .bg {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background: url("../img/lady-sitting.jpg") no-repeat;
+	background-size: cover;
+	opacity: 0.05;
+	mix-blend-mode: multiply;
+	background-position-y: bottom;
+}
+
+nav {
+	display: flex;
+	width: 100%;
+	height: 3rem;
+	align-items: center;
+	background-color: var(--color-secondary);
+	padding: 4rem 5rem;
+}
+
+nav .nav-links {
+	width: 100%;
+	font-size: 2rem;
+}
+
+nav .nav-links .nav-link {
+	margin-right: 4rem;
+	color: var(--color-primary);
+	position: relative;
+}
+
+nav .nav-links .nav-link::after {
+	content: "";
+	position: absolute;
+	width: 0%;
+	height: 0.3rem;
+	background-color: var(--color-primary);
+	bottom: 0;
+	left: 0;
+	margin-bottom: -0.8rem;
+
+	transition: all 0.2s;
+}
+
+nav .nav-links .nav-link:hover::after {
+	width: 100%;
+}
+
+nav .logo {
+	width: 8rem;
+	margin-right: 6rem;
+}
+nav .logo img {
+	width: 100%;
+}
+
+header .info {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	padding-left: 5rem;
+}
+
+header .info .left {
+	width: 45%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+header .info .left h1 {
+	font-size: 11rem;
+}
+
+header .info .right {
+	width: 50%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+header .info .right::before {
+	content: "";
+	width: 80rem;
+	background-color: var(--color-secondary);
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	clip-path: polygon(47% 0, 100% 0%, 100% 100%, 0% 100%);
+
+	animation: color-change 32s linear infinite;
+}
+
+header .info .right .img-wrapper {
+	width: 100%;
+	height: 70%;
+	position: relative;
+	overflow: hidden;
+	box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+}
+
+header .info .right .img-wrapper::before {
+	content: "";
+	width: 50%;
+	height: 100%;
+	background-color: var(--color-accent);
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 100;
+
+	animation: sliding-door 8s linear infinite;
+}
+header .info .right .img-wrapper::after {
+	content: "";
+	width: 50%;
+	height: 100%;
+	background-color: var(--color-accent);
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 100;
+
+	animation: sliding-door 8s linear infinite;
+}
+
+header .info .right .img-wrapper img {
+	width: 100%;
+	aspect-ratio: 1;
+	object-fit: cover;
+	position: absolute;
+	opacity: 0;
+}
+
+header .info .right .img-wrapper img:nth-child(1) {
+	animation: sneaker-change 32s linear infinite;
+}
+header .info .right .img-wrapper img:nth-child(2) {
+	animation: sneaker-change 32s linear 8s infinite;
+}
+header .info .right .img-wrapper img:nth-child(3) {
+	animation: sneaker-change 32s linear 16s infinite;
+}
+header .info .right .img-wrapper img:nth-child(4) {
+	animation: sneaker-change 32s linear 24s infinite;
+}
+
+@keyframes sliding-door {
+	0% {
+		width: 50%;
+	}
+
+	15%,
+	80% {
+		width: 0;
+	}
+
+	90%,
+	100% {
+		width: 50%;
+	}
+}
+
+@keyframes sneaker-change {
+	0%,
+	24% {
+		opacity: 1;
+	}
+	51% {
+		opacity: 0;
+	}
+}
+
+@keyframes color-change {
+	0%,
+	24% {
+		background-color: #f9c301;
+	}
+	25%,
+	49% {
+		background-color: #023452;
+	}
+	50%,
+	74% {
+		background-color: #b9c1fd;
+	}
+	75%,
+	100% {
+		background-color: #e3b572;
+	}
+}
